@@ -38,11 +38,9 @@ function Example() {
 
   return (
     <div>
-      {/* <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <strong>👀 {data.subscribers_count}</strong>{' '}
-      <strong>✨ {data.stargazers_count}</strong>{' '}
-      <strong>🍴 {data.forks_count}</strong> */}
+      <h1>"{data[0].quote}"</h1>
+      <h2>Author: "{data[0].author}"</h2>
+      <h2>Category: "{data[0].category}"</h2>
     </div>
   );
 }
