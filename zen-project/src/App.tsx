@@ -13,6 +13,8 @@ type QuoteProps = {
   quote: string;
 };
 
+
+
 type PropsArray = Array<QuoteProps>;
 
 export default function App() {
@@ -20,7 +22,7 @@ export default function App() {
   const [limit, setLimit] = React.useState<number>(1);
 
   const quoteCategories: string[] = categories;
-  console.log(categories);
+  console.log(categories, category, limit);
 
   return (
     <>
