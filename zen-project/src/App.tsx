@@ -16,23 +16,17 @@ type QuoteData = {
 type MyArray = Array<QuoteData>;
 
 export default function App() {
-  const [category, setCategory] = React.useState();
-  const [limit, setLimit] = React.useState();
+  const [category, setCategory] = React.useState<string>('inspirational');
+  const [limit, setLimit] = React.useState<number>(1);
 
   const quoteCategories: string[] = categories;
   console.log(categories);
-
-  console.log('Test:', TestQuote());
-
-  //useState for category
-  //useState for Limit
-
-  //Change States somewhere in app
 
   return (
     <>
       <div>Hello Tanstack!</div>
       <RandomQuote />
+      {/* <TestQuote/> */}
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button key={index} category={quoteCategory} />
@@ -70,9 +64,9 @@ function RandomQuote() {
     </div>
   );
 }
-function TestQuote() {
-  const [category, setCategory] = React.useState();
-  const [limit, setLimit] = React.useState();
+function TestQuote(category: string, limit: number) {
+  // const [category, setCategory] = React.useState<string>();
+  // const [limit, setLimit] = React.useState<number>();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ['quotes', category, limit],
@@ -92,10 +86,6 @@ function TestQuote() {
         .then((res) => res.json())
         .then((data) => data as MyArray),
   });
-  
-  // .then((res) => res.json())
-  // .then((data) => data as MyArray),
-
 
   if (isLoading) return <div>'Loading...'</div>;
 
@@ -105,11 +95,6 @@ function TestQuote() {
 
   console.log(data);
   
-
-  return (
-    <div>
-      Return of the div
-    </div>
-  )
+  return data;
   
 }
