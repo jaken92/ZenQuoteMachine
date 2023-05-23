@@ -31,13 +31,8 @@ export default function App() {
   return (
     <>
       <div>Hello Tanstack!</div>
-<<<<<<< Updated upstream
       <RandomQuote />
-    </QueryClientProvider>
-=======
-      <Example />
     </>
->>>>>>> Stashed changes
   );
 }
 
