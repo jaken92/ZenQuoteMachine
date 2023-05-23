@@ -11,27 +11,25 @@ import categories from './utils/categories';
 const key: string = import.meta.env.VITE_API_KEY;
 
 type QuoteProps = {
-  author: string;
-  category: string;
-  quote: string;
+  author: string,
+  category: string,
+  quote: string,
 };
-
-
 
 type PropsArray = Array<QuoteProps>;
 
 export default function App() {
-  const [category, setCategory] = React.useState<string>('inspirational');
-  const [limit, setLimit] = React.useState<number>(1);
+  const [category, setCategory] = React.useState<string>('');
+  const [limit, setLimit] = React.useState<number>(0);
 
   const quoteCategories: string[] = categories;
-  console.log(categories, category, limit);
+  // console.log(categories, category, limit);
 
   return (
     <>
-      <div>Hello Tanstack!</div>
+      <h1>Quote Machine</h1>
       <RandomQuote />
-      {/* <TestQuote/> */}
+      <TestQuote category={category}/>
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button key={index} category={quoteCategory} />
@@ -64,24 +62,24 @@ function RandomQuote() {
 
   return (
     <div>
-      <h1>"{data[0].quote}"</h1>
-      <h2>Author: "{data[0].author}"</h2>
-      <h2>Category: "{data[0].category}"</h2>
+      <p>"{data[0].quote}"</p>
+      <p>Author: "{data[0].author}"</p>
+      <p>Category: "{data[0].category}"</p>
     </div>
   );
 }
-function TestQuote(category: string, limit: number) {
+function TestQuote(props: any) {
   // const [category, setCategory] = React.useState<string>();
   // const [limit, setLimit] = React.useState<number>();
 
   const { isLoading, error, data } = useQuery({
-    queryKey: ['quotes', category, limit],
+    queryKey: ['quotes', props.category, props.limit],
     queryFn: () =>
       fetch(
         'https://api.api-ninjas.com/v1/quotes?category=' +
-          category +
+          props.category +
           '&limit=' +
-          limit,
+          props.limit,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -99,8 +97,12 @@ function TestQuote(category: string, limit: number) {
 
   if (!data && data == undefined) return null;
 
-  console.log(data);
+  console.log("TestQuote:", data);
   
-  return data;
+  return (
+    <div>
+    <h1>{data[0].category}</h1>
+    </div>
+  )
   
 }
