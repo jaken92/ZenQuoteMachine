@@ -30,7 +30,7 @@ export default function App() {
   //useState for Limit
 
   //Change States somewhere in app
-  
+
   return (
     <>
       <div>Hello Tanstack!</div>
@@ -66,7 +66,6 @@ function RandomQuote() {
       <h2>Category: "{data[0].category}"</h2>
     </div>
   );
-
 }
 function TestQuote() {
   
