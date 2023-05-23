@@ -7,13 +7,13 @@ import categories from './utils/categories';
 
 const key: string = import.meta.env.VITE_SOME_KEY;
 
-type QuoteData = {
+type QuoteProps = {
   author: string;
   category: string;
   quote: string;
 };
 
-type MyArray = Array<QuoteData>;
+type PropsArray = Array<QuoteProps>;
 
 export default function App() {
   const [category, setCategory] = React.useState<string>('inspirational');
@@ -47,7 +47,7 @@ function RandomQuote() {
         },
       })
         .then((res) => res.json())
-        .then((data) => data as MyArray),
+        .then((data) => data as PropsArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
@@ -84,7 +84,7 @@ function TestQuote(category: string, limit: number) {
         }
       )
         .then((res) => res.json())
-        .then((data) => data as MyArray),
+        .then((data) => data as PropsArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
