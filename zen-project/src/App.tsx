@@ -7,19 +7,15 @@ import {
 } from '@tanstack/react-query';
 const key: string = import.meta.env.VITE_SOME_KEY;
 
-type MyArray = Array<{
-  0: QuoteData;
-}>;
-
 type QuoteData = {
   author: string;
   category: string;
   quote: string;
 };
 
-// let Arrayyuz:<QuoteData> = [
-//   {}
-// ]
+type MyArray = Array<QuoteData>;
+
+
 
 const queryClient = new QueryClient();
 
@@ -41,7 +37,7 @@ function Example() {
           'Content-Type': 'application/json',
           'x-api-key': key,
         },
-      }).then((res) => res.json() as unknown as QuoteData),
+      }).then((res) => res.json() as unknown as MyArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
@@ -50,7 +46,7 @@ function Example() {
 
   console.log(data);
   
-
+  if (data) {
   return (
     <div>
       <h1>"{data[0].quote}"</h1>
@@ -58,4 +54,5 @@ function Example() {
       <h2>Category: "{data[0].category}"</h2>
     </div>
   );
+}
 }
