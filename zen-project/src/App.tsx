@@ -5,6 +5,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query';
+import {FetchRandomQuote, FetchQuoteByCategory} from './utils/queries';
 const key: string = import.meta.env.VITE_SOME_KEY;
 
 type QuoteData = {
@@ -18,6 +19,9 @@ type MyArray = Array<QuoteData>;
 const queryClient = new QueryClient();
 
 export default function App() {
+
+  console.log("Category art:", FetchQuoteByCategory('art'));
+  
   return (
     <QueryClientProvider client={queryClient}>
       <div>Hello Tanstack!</div>
@@ -55,3 +59,4 @@ function RandomQuote() {
     </div>
   );
 }
+
