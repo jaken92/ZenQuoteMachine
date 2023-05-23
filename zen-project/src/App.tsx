@@ -2,7 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import { useQuery } from '@tanstack/react-query';
+// Components --->
 import Button from './components/Button/Button';
+import Limiter from './components/Limiter/Limiter';
+// <--- ---|
 import categories from './utils/categories';
 
 const key: string = import.meta.env.VITE_SOME_KEY;
@@ -33,6 +36,7 @@ export default function App() {
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button key={index} category={quoteCategory} />
         ))}
+        <Limiter />
       </section>
     </>
   );
