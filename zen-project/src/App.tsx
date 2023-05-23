@@ -8,7 +8,7 @@ import Limiter from './components/Limiter/Limiter';
 // <--- ---|
 import categories from './utils/categories';
 
-const key: string = import.meta.env.VITE_SOME_KEY;
+const key: string = import.meta.env.VITE_API_KEY;
 
 type QuoteProps = {
   author: string;
