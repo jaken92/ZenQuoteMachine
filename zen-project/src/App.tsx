@@ -15,20 +15,18 @@ type QuoteData = {
 
 type MyArray = Array<QuoteData>;
 
-
-
 const queryClient = new QueryClient();
 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div>Hello Tanstack!</div>
-      <Example />
+      <RandomQuote />
     </QueryClientProvider>
   );
 }
 
-function Example() {
+function RandomQuote() {
   const { isLoading, error, data } = useQuery({
     queryKey: ['quotes'],
     queryFn: () =>
@@ -37,16 +35,18 @@ function Example() {
           'Content-Type': 'application/json',
           'x-api-key': key,
         },
-      }).then((res) => res.json() as unknown as MyArray),
+      })
+        .then((res) => res.json())
+        .then((data) => data as MyArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
 
   if (error) return <div>'An error has occurred: '</div>;
 
+  if (!data) return null;
   console.log(data);
-  
-  if (data) {
+
   return (
     <div>
       <h1>"{data[0].quote}"</h1>
@@ -54,5 +54,4 @@ function Example() {
       <h2>Category: "{data[0].category}"</h2>
     </div>
   );
-}
 }
