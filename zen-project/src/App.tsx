@@ -5,9 +5,11 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query';
-import {FetchRandomQuote, FetchQuoteByCategory, FetchQuotes} from './utils/queries';
-
-
+import {
+  FetchRandomQuote,
+  FetchQuoteByCategory,
+  FetchQuotes,
+} from './utils/queries';
 
 const key: string = import.meta.env.VITE_SOME_KEY;
 
@@ -22,16 +24,15 @@ type MyArray = Array<QuoteData>;
 const queryClient = new QueryClient();
 
 export default function App() {
-
   //useState for category
   //useState for Limit
 
   //Change States somewhere in app
-  
+
   return (
     <>
       <div>Hello Tanstack!</div>
-      <RandomQuote/>
+      <RandomQuote />
       {/* <TestQuote/> */}
     </>
   );
@@ -64,7 +65,6 @@ function RandomQuote() {
       <h2>Category: "{data[0].category}"</h2>
     </div>
   );
-
 }
 // function TestQuote({category:string, limit:number}) {
 //   const { isLoading, error, data } = useQuery({
