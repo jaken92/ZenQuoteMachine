@@ -41,7 +41,7 @@ function Example() {
           'Content-Type': 'application/json',
           'x-api-key': key,
         },
-      }).then((res) => res.json() as MyArray),
+      }).then((res) => res.json() as MyArrayunknown as QuoteData),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
@@ -49,6 +49,7 @@ function Example() {
   if (error) return <div>'An error has occurred: '</div>;
 
   console.log(data);
+  
 
   return (
     <div>
