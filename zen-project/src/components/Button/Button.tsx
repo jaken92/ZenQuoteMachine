@@ -1,7 +1,10 @@
-import { FetchQuotes } from '../../utils/queries';
+import { fetchQuotes } from '../../utils/queries';
 
-const Button = (category: string, limit?: number) => {
-  return <button onClick={() => FetchQuotes(category, limit?)}>{category}</button>;
+const Button = (props: { category: string; limit?: number }) => {
+  const { category, limit } = props;
+  return (
+    <button onClick={() => console.log(category + limit)}>{category}</button>
+  );
 };
 
 export default Button;
