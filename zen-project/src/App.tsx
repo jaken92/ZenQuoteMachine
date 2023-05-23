@@ -7,13 +7,19 @@ import {
 } from '@tanstack/react-query';
 const key: string = import.meta.env.VITE_SOME_KEY;
 
-let QuoteArray: Array<QuoteData> = [];
+type MyArray = Array<{
+  0: QuoteData;
+}>;
 
 type QuoteData = {
   author: string;
   category: string;
   quote: string;
 };
+
+// let Arrayyuz:<QuoteData> = [
+//   {}
+// ]
 
 const queryClient = new QueryClient();
 
@@ -35,7 +41,7 @@ function Example() {
           'Content-Type': 'application/json',
           'x-api-key': key,
         },
-      }).then((res) => res.json() as ),
+      }).then((res) => res.json() as MyArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
