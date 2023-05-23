@@ -4,6 +4,7 @@ import './App.css';
 import {
   useQuery,
 } from '@tanstack/react-query';
+import Button from './components/Button/Button';
 
 
 
@@ -19,14 +20,6 @@ type MyArray = Array<QuoteData>;
 
 export default function App() {
 
-  const [category, setCategory] = React.useState();
-  const [limit, setLimit] = React.useState();
-
-  console.log("Test:", TestQuote());
-  
-
-  //useState for category
-  //useState for Limit
 
   //Change States somewhere in app
 
@@ -34,6 +27,7 @@ export default function App() {
     <>
       <div>Hello Tanstack!</div>
       <RandomQuote/>
+      <TestQuote/>
     </>
   );
 }
@@ -67,7 +61,7 @@ function RandomQuote() {
   );
 }
 function TestQuote() {
-  
+
   const [category, setCategory] = React.useState();
   const [limit, setLimit] = React.useState();
 
@@ -83,12 +77,24 @@ function TestQuote() {
         .then((res) => res.json())
         .then((data) => data as MyArray),
   });
+  
+  // .then((res) => res.json())
+  // .then((data) => data as MyArray),
+
 
   if (isLoading) return <div>'Loading...'</div>;
 
-  if (error) return <div>'An error has occurred: '</div>;
+  if (error instanceof Error) return <div>'An error has occurred: '</div>;
 
   if (!data && data == undefined) return null;
+
+  console.log(data);
   
-  return data;
+
+  return (
+    <div>
+      Return of the div
+    </div>
+  )
+  
 }
