@@ -1,11 +1,10 @@
+import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import {
   QueryClient,
-  QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query';
-import {FetchRandomQuote, FetchQuoteByCategory, FetchQuotes} from './utils/queries';
 
 
 
@@ -19,9 +18,13 @@ type QuoteData = {
 
 type MyArray = Array<QuoteData>;
 
-const queryClient = new QueryClient();
-
 export default function App() {
+
+  const [category, setCategory] = React.useState();
+  const [limit, setLimit] = React.useState();
+
+  console.log("Test:", TestQuote());
+  
 
   //useState for category
   //useState for Limit
@@ -32,7 +35,6 @@ export default function App() {
     <>
       <div>Hello Tanstack!</div>
       <RandomQuote/>
-      {/* <TestQuote/> */}
     </>
   );
 }
@@ -66,31 +68,29 @@ function RandomQuote() {
   );
 
 }
-// function TestQuote({category:string, limit:number}) {
-//   const { isLoading, error, data } = useQuery({
-//     queryKey: ['quotes', category, limit],
-//     queryFn: () =>
-//       fetch('https://api.api-ninjas.com/v1/quotes?category=' + category + '&limit=' + limit, {
-//         headers: {
-//           'Content-Type': 'application/json',
-//           'x-api-key': key,
-//         },
-//       })
-//         .then((res) => res.json())
-//         .then((data) => data as MyArray),
-//   });
+function TestQuote() {
+  
+  const [category, setCategory] = React.useState();
+  const [limit, setLimit] = React.useState();
 
-//   if (isLoading) return <div>'Loading...'</div>;
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['quotes', category, limit],
+    queryFn: () =>
+      fetch('https://api.api-ninjas.com/v1/quotes?category=' + category + '&limit=' + limit, {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': key,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => data as MyArray),
+  });
 
-//   if (error) return <div>'An error has occurred: '</div>;
+  if (isLoading) return <div>'Loading...'</div>;
 
-//   if (!data) return null;
+  if (error) return <div>'An error has occurred: '</div>;
 
-//   return (
-//     <div>
-//       <h1>"{data[0].quote}"</h1>
-//       <h2>Author: "{data[0].author}"</h2>
-//       <h2>Category: "{data[0].category}"</h2>
-//     </div>
-//   );
-// }
+  if (!data && data == undefined) return null;
+  
+  return data;
+}
