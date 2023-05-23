@@ -41,7 +41,7 @@ function Example() {
           'Content-Type': 'application/json',
           'x-api-key': key,
         },
-      }).then((res) => res.json() as MyArrayunknown as QuoteData),
+      }).then((res) => res.json() as unknown as QuoteData),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
