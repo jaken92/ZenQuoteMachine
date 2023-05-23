@@ -10,32 +10,26 @@ import categories from './utils/categories';
 
 const key: string = import.meta.env.VITE_SOME_KEY;
 
-type QuoteData = {
+type QuoteProps = {
   author: string;
   category: string;
   quote: string;
 };
 
-type MyArray = Array<QuoteData>;
+type PropsArray = Array<QuoteProps>;
 
 export default function App() {
-  const [category, setCategory] = React.useState();
-  const [limit, setLimit] = React.useState();
+  const [category, setCategory] = React.useState<string>('inspirational');
+  const [limit, setLimit] = React.useState<number>(1);
 
   const quoteCategories: string[] = categories;
   console.log(categories);
-
-  console.log('Test:', TestQuote());
-
-  //useState for category
-  //useState for Limit
-
-  //Change States somewhere in app
 
   return (
     <>
       <div>Hello Tanstack!</div>
       <RandomQuote />
+      {/* <TestQuote/> */}
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button key={index} category={quoteCategory} />
@@ -57,7 +51,7 @@ function RandomQuote() {
         },
       })
         .then((res) => res.json())
-        .then((data) => data as MyArray),
+        .then((data) => data as PropsArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
@@ -74,9 +68,9 @@ function RandomQuote() {
     </div>
   );
 }
-function TestQuote() {
-  const [category, setCategory] = React.useState();
-  const [limit, setLimit] = React.useState();
+function TestQuote(category: string, limit: number) {
+  // const [category, setCategory] = React.useState<string>();
+  // const [limit, setLimit] = React.useState<number>();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ['quotes', category, limit],
@@ -94,14 +88,17 @@ function TestQuote() {
         }
       )
         .then((res) => res.json())
-        .then((data) => data as MyArray),
+        .then((data) => data as PropsArray),
   });
 
   if (isLoading) return <div>'Loading...'</div>;
 
-  if (error) return <div>'An error has occurred: '</div>;
+  if (error instanceof Error) return <div>'An error has occurred: '</div>;
 
   if (!data && data == undefined) return null;
 
+  console.log(data);
+  
   return data;
+  
 }
