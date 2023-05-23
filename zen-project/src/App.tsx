@@ -36,8 +36,8 @@ export default function App() {
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button key={index} category={quoteCategory} />
         ))}
-        <Limiter />
       </section>
+      <Limiter />
     </>
   );
 }
