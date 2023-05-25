@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import { useQuery } from '@tanstack/react-query';
 // Components --->
-import Button from './components/Button/Button';
+import { Button } from './components/Button/Button';
 import Limiter from './components/Limiter/Limiter';
 // <--- ---|
 import categories from './utils/categories';
@@ -33,11 +33,10 @@ export default function App() {
   return (
     <>
       <h1>Quote Machine</h1>
-      <button onClick={handleBtnClick}>Fetch New</button>
       <Quotes category={category} limit={limit} />
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
-          <Button key={index} category={quoteCategory} />
+          <Button fn={handleBtnClick} key={index} category={quoteCategory} />
         ))}
       </section>
       <Limiter />
