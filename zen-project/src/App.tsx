@@ -15,6 +15,11 @@ export default function App() {
     setCategory('funny');
   }
 
+  function handleLimitCallback(val: number) {
+    setLimit(val);
+    console.log(limit);
+  }
+
   return (
     <>
       <h1>Quote Machine</h1>
@@ -24,7 +29,7 @@ export default function App() {
           <Button fn={handleBtnClick} key={index} category={quoteCategory} />
         ))}
       </section>
-      <Limiter />
+      <Limiter limitCallback={handleLimitCallback} />
     </>
   );
 }
