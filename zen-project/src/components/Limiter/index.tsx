@@ -1,7 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
 
-const Limiter = () => {
+export const Limiter = () => {
   const limits: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const [limitValue, setLimitValue] = React.useState(1);
@@ -32,4 +31,3 @@ const Limiter = () => {
   );
 };
 
-export default Limiter;
