@@ -76,7 +76,7 @@ function FetchQuotes(props: { category: string; limit?: number }) {
   //  Temporary test -> should return a managable PropsArray 
   //  Make isLoading, error and !data (undefined) return as PropsArray as well. 
 
-    return (
+    return(
       data.map((index: QuoteProps, item: number) => (
         <div>
         <p>PropsArray.length:  {data.length}</p>
