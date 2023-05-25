@@ -1,4 +1,4 @@
-const category: Array<string> = [
+const categories: Array<string> = [
   'age',
   'alone',
   'amazing',
@@ -68,4 +68,4 @@ const category: Array<string> = [
   'success',
 ];
 
-export default category;
+export default categories;

@@ -21,6 +21,8 @@ type QuoteArray = Array<Quote>;
 export default function App() {
   const [category, setCategory] = React.useState<string>('');
   const [limit, setLimit] = React.useState<number>(1);
+
+
   //  Default values of the states category and limit are set within the last paranthesis.
 
   const quoteCategories: string[] = categories;
@@ -48,8 +50,8 @@ function Quotes(props: { category: string; limit?: number }) {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data } = useQuery({
-    queryKey: ['quotes', props.category, props.limit],
-    queryFn: () =>
+    queryKey: ['quotes', quoteProps.category, quoteProps.limit],
+    queryFn: () => 
       fetch(
         'https://api.api-ninjas.com/v1/quotes?category=' +
           props.category +
@@ -66,11 +68,12 @@ function Quotes(props: { category: string; limit?: number }) {
         .then((data) => data as QuoteArray),
   });
 
-  if (isLoading) return <div> Loading...</div>;
+  
+  if (isLoading) return <div>Loading ...</div>
 
   if (error instanceof Error) return <div>An error has occurred: </div>;
-
-  if (!data && data == undefined) return <div>No data found.</div>;
+  
+  if (!data) return <div>No data found.</div>;
 
   console.log('data: PropsArray = ', data);
 
