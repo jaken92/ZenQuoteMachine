@@ -7,7 +7,10 @@ const Limiter = () => {
   const [limitValue, setLimitValue] = React.useState(1);
 
   const handleChange = (event: React.ChangeEvent) => {
-    setLimitValue(event.target.value);
+    const target = event.target as HTMLInputElement;
+
+    // Converts the "target.value"-string to a number.
+    setLimitValue(+target.value);
   };
 
   return (
@@ -18,7 +21,8 @@ const Limiter = () => {
           {limits.map((currentLimit, index) => (
             <option
               value={currentLimit}
-              label={currentLimit}
+              // Converts the tcurrentLimit"-number to a string.
+              label={currentLimit.toString()}
               key={index}
             ></option>
           ))}
