@@ -26,8 +26,8 @@ export default function App() {
 
   const quoteCategories: string[] = categories;
 
-  function handleBtnClick() {
-    setCategory('funny');
+  function handleBtnClick(quoteCategory: string) {
+    setCategory(quoteCategory);
   }
 
   return (
@@ -36,7 +36,11 @@ export default function App() {
       <Quotes category={category} limit={limit} />
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
-          <Button fn={handleBtnClick} key={index} category={quoteCategory} />
+          <Button
+            fn={handleBtnClick('funny')}
+            key={index}
+            category={quoteCategory}
+          />
         ))}
       </section>
       <Limiter />
