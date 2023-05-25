@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button, Limiter, Quote} from "./components";
+import { Button, Limiter, Quote } from './components';
 import categories from './utils/categories';
 
 export default function App() {
@@ -11,8 +11,8 @@ export default function App() {
 
   const quoteCategories: string[] = categories;
 
-  function handleBtnClick(quoteCategory: string) {
-    setCategory(quoteCategory);
+  function handleBtnClick() {
+    setCategory('funny');
   }
 
   return (
@@ -21,11 +21,7 @@ export default function App() {
       <Quote category={category} limit={limit} />
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
-          <Button
-            fn={handleBtnClick('funny')}
-            key={index}
-            category={quoteCategory}
-          />
+          <Button fn={handleBtnClick} key={index} category={quoteCategory} />
         ))}
       </section>
       <Limiter />
