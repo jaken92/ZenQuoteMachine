@@ -10,27 +10,30 @@ import categories from './utils/categories';
 
 const key: string = import.meta.env.VITE_API_KEY;
 
-type QuoteProps = {
-  author: string,
-  category: string,
-  quote: string,
+type Quote = {
+  author: string;
+  category: string;
+  quote: string;
 };
 
-type PropsArray = Array<QuoteProps>;
+type QuoteArray = Array<Quote>;
 
 export default function App() {
-
-  
   const [category, setCategory] = React.useState<string>('');
   const [limit, setLimit] = React.useState<number>(1);
   //  Default values of the states category and limit are set within the last paranthesis.
 
   const quoteCategories: string[] = categories;
 
+  function handleBtnClick() {
+    setCategory('funny');
+  }
+
   return (
     <>
       <h1>Quote Machine</h1>
-      <FetchQuotes category={category} limit={limit}/>
+      <button onClick={handleBtnClick}>Fetch New</button>
+      <Quotes category={category} limit={limit} />
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button key={index} category={quoteCategory} />
@@ -41,8 +44,7 @@ export default function App() {
   );
 }
 
-function FetchQuotes(props: { category: string; limit?: number }) {
-
+function Quotes(props: { category: string; limit?: number }) {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data } = useQuery({
@@ -61,7 +63,7 @@ function FetchQuotes(props: { category: string; limit?: number }) {
         }
       )
         .then((res) => res.json())
-        .then((data) => data as PropsArray),
+        .then((data) => data as QuoteArray),
   });
 
   if (isLoading) return <div> Loading...</div>;
@@ -70,20 +72,22 @@ function FetchQuotes(props: { category: string; limit?: number }) {
 
   if (!data && data == undefined) return <div>No data found.</div>;
 
-  console.log("data: PropsArray = ", data);
+  console.log('data: PropsArray = ', data);
 
-  //  Goal is to not return html here but within the app-component return. 
-  //  Temporary test -> should return a managable PropsArray 
-  //  Make isLoading, error and !data (undefined) return as PropsArray as well. 
+  //  Goal is to not return html here but within the app-component return.
+  //  Temporary test -> should return a managable PropsArray
+  //  Make isLoading, error and !data (undefined) return as PropsArray as well.
 
-    return(
-      data.map((index: QuoteProps, item: number) => (
-        <div>
-        <p>PropsArray.length:  {data.length}</p>
-        <p>Quote: "{index.quote}"</p>
-        <p>Author: "{index.author}"</p>
-        <p>Category: "{index.category}"</p>
-      </div>
-  ))
-  )
+  return (
+    <div>
+      {data.map((item: Quote, index: number) => (
+        <div key={index}>
+          <p>PropsArray.length: {data.length}</p>
+          <p>Quote: "{item.quote}"</p>
+          <p>Author: "{item.author}"</p>
+          <p>Category: "{item.category}"</p>
+        </div>
+      ))}
+    </div>
+  );
 }
