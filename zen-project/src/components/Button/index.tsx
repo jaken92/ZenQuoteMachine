@@ -2,8 +2,6 @@ import './Button.css';
 
 import { ButtonProps } from '../../utils/types';
 
-
-
 export const Button: React.FC<ButtonProps> = ({ category, fn, limit }) => {
   return (
     <button value={category} onClick={fn}>
@@ -11,7 +9,6 @@ export const Button: React.FC<ButtonProps> = ({ category, fn, limit }) => {
     </button>
   );
 };
-
 
 // const Button = (props: { category: string; limit?: number }) => {
 //   const { category, limit } = props;

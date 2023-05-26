@@ -11,8 +11,8 @@ export default function App() {
 
   const quoteCategories: string[] = categories;
 
-  function handleBtnClick() {
-    setCategory('funny');
+  function handleBtnClick(category: string) {
+    setCategory(category);
   }
 
   return (
