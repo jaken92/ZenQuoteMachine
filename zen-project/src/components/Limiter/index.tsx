@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Limiter = () => {
+export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
   const limits: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const [limitValue, setLimitValue] = React.useState(1);
@@ -10,6 +10,7 @@ export const Limiter = () => {
 
     // Converts the "target.value"-string to a number.
     setLimitValue(+target.value);
+    props.limitCallback(limitValue);
   };
 
   return (
@@ -30,4 +31,3 @@ export const Limiter = () => {
     </div>
   );
 };
-
