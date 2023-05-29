@@ -11,8 +11,16 @@ export default function App() {
 
   const quoteCategories: string[] = categories;
 
+  // const initialCategory: string = "";
+
+  // const resetCategory = () => {
+  //   setCategory(initialCategory);
+  // }
+
   const handleBtnClick = (category: string) => {
     // setGetNew(false);
+    // resetCategory;
+
     setCategory(category);
   };
 

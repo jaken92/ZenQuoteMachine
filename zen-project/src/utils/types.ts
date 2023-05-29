@@ -6,8 +6,6 @@ export type QuoteType = {
   quote: string;
 };
 
-export type QuoteArray = Array<QuoteType>;
-
 export type ButtonProps = {
   clickFunction: (category: string) => void;
   category: string;

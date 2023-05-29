@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { QuoteType, QuoteArray } from '../../utils/types';
+import { QuoteType } from '../../utils/types';
 
 const key: string = import.meta.env.VITE_API_KEY;
 
 export function Quote(props: { category: string; limit?: number }) {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, error, data, refetch } = useQuery({
     queryKey: ['quotes', props.category],
     queryFn: () =>
       fetch(
@@ -22,8 +22,11 @@ export function Quote(props: { category: string; limit?: number }) {
         }
       )
         .then((res) => res.json())
-        .then((data) => data as QuoteArray),
-  });
+        .then((data) => data as QuoteType[]),
+        refetchOnWindowFocus: false,
+    });
+
+  
 
   if (isLoading) return <div>Loading ...</div>;
 
@@ -34,10 +37,11 @@ export function Quote(props: { category: string; limit?: number }) {
   return (
     <div>
       {data.map((item: QuoteType, index: number) => (
+
         <div key={index}>
           <p>Quote: "{item.quote}"</p>
           <p>Author: "{item.author}"</p>
-          <p>Category: "{item.category}"</p>
+          <p>Category: "{item.category.charAt(0).toUpperCase() + item.category.slice(1)}"</p>
         </div>
       ))}
     </div>
