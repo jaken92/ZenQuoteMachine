@@ -31,17 +31,10 @@ export function Quote(props: { category: string; limit?: number }) {
 
   if (!data) return <div>No data found.</div>;
 
-  console.log('data: PropsArray = ', data);
-
-  //  Goal is to not return html here but within the app-component return.
-  //  Temporary test -> should return a managable PropsArray
-  //  Make isLoading, error and !data (undefined) return as PropsArray as well.
-
   return (
     <div>
       {data.map((item: QuoteType, index: number) => (
         <div key={index}>
-          <p>PropsArray.length: {data.length}</p>
           <p>Quote: "{item.quote}"</p>
           <p>Author: "{item.author}"</p>
           <p>Category: "{item.category}"</p>
