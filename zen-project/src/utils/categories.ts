@@ -21,7 +21,7 @@ const categories = [
   'death',
   'design',
   'dreams',
-  'education',
+  // 'education',
   'environmental',
   'equality',
   'experience',
