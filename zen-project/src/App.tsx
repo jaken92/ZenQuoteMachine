@@ -35,11 +35,13 @@ export default function App() {
     refetchOnWindowFocus: false,
   });
 
-  if (isLoading) return <div>Loading ...</div>;
+  let message : string = "";
 
-  if (error instanceof Error) return <div>An error has occurred: </div>;
+  if (isLoading) message = 'Loading ...';
 
-  if (!data) return <div>No data found.</div>;
+  if (error instanceof Error) message = "An error has occurred.";
+
+  if (!data && !isLoading && !error) message = "No data found.";
 
   //  Default values of the states category and limit are set within the last paranthesis.
 
@@ -64,7 +66,8 @@ export default function App() {
     <>
       <h1>Quote Machine</h1>
       <div>
-        {data.map((item: QuoteType, index: number) => (
+      { isLoading || error || !data ? message :
+        data.map((item: QuoteType, index: number) => (
           <div key={index}>
             <p>Quote: "{item.quote}"</p>
             <p>Author: "{item.author}"</p>
@@ -74,6 +77,7 @@ export default function App() {
             </p>
           </div>
         ))}
+        
       </div>
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
