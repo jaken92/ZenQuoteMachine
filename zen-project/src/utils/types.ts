@@ -1,5 +1,3 @@
-import { MouseEventHandler } from 'react';
-
 export type QuoteType = {
   author: string;
   category: string;

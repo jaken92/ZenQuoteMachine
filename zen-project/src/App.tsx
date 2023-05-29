@@ -13,7 +13,7 @@ export default function App() {
 
   const key: string = import.meta.env.VITE_API_KEY;
   
-  //  Function to test passing of props as states. Returns mapped PropsArray.
+  //  Function to test passing of props as states. Returns mapped array of QuoteType.
 
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ['quotes', category],
