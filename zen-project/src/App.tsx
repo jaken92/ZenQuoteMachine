@@ -1,11 +1,25 @@
 import React from 'react';
-import './App.css';
-import { Button } from './components/Button';
-import { Limiter } from './components/Limiter';
+import { Button, Limiter } from './components';
 import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
-import { RandomButton } from './components/RandomButton';
+import styled from 'styled-components';
+
+const StyledApp = styled.div`
+h1 {
+  text-align: center;
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+}
+@media (max-width: 767px) {
+  .categories {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+`;
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
 let currentCat: string = '';
@@ -66,7 +80,7 @@ export default function App() {
   }
 
   return (
-    <>
+  <StyledApp>
       <h1>Quote Machine</h1>
       <div>
         <RandomButton
@@ -99,6 +113,6 @@ export default function App() {
         ))}
       </section>
       <Limiter limitCallback={handleLimitCallback} />
-    </>
+      </StyledApp>
   );
 }
