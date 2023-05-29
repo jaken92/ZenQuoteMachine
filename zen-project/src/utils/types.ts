@@ -8,3 +8,9 @@ export type ButtonProps = {
   clickFunction: (category: string) => void;
   category: string;
 };
+
+export type RandomButtonProps = {
+  clickFunction: (category: string) => void;
+  category: string;
+  btnText: string;
+};

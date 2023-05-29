@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Button, Limiter } from './components';
+import { Button } from './components/Button';
+import { Limiter } from './components/Limiter';
 import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
+import { RandomButton } from './components/RandomButton';
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
 let currentCat: string = '';
@@ -36,13 +38,13 @@ export default function App() {
     refetchOnWindowFocus: false,
   });
 
-  let message : string = "";
+  let message: string = '';
 
   if (isLoading) message = 'Loading ...';
 
-  if (error instanceof Error) message = "An error has occurred.";
+  if (error instanceof Error) message = 'An error has occurred.';
 
-  if (!data && !isLoading && !error) message = "No data found.";
+  if (!data && !isLoading && !error) message = 'No data found.';
 
   //  Default values of the states category and limit are set within the last paranthesis.
 
@@ -67,18 +69,25 @@ export default function App() {
     <>
       <h1>Quote Machine</h1>
       <div>
-      { isLoading || error || !data ? message :
-        data.map((item: QuoteType, index: number) => (
-          <div key={index}>
-            <p>Quote: "{item.quote}"</p>
-            <p>Author: "{item.author}"</p>
-            <p>
-              Category: "
-              {item.category.charAt(0).toUpperCase() + item.category.slice(1)}"
-            </p>
-          </div>
-        ))}
-        
+        <RandomButton
+          clickFunction={handleBtnClick}
+          category={''}
+          btnText={'Random Quote'}
+        />
+        {isLoading || error || !data
+          ? message
+          : data.map((item: QuoteType, index: number) => (
+              <div key={index}>
+                <p>Quote: "{item.quote}"</p>
+                <p>Author: "{item.author}"</p>
+                <p>
+                  Category: "
+                  {item.category.charAt(0).toUpperCase() +
+                    item.category.slice(1)}
+                  "
+                </p>
+              </div>
+            ))}
       </div>
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
