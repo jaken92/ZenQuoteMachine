@@ -6,7 +6,6 @@ import categories from './utils/categories';
 export default function App() {
   const [category, setCategory] = React.useState<string>('');
   const [limit, setLimit] = React.useState<number>(1);
-  const [getNew, setGetNew] = React.useState<boolean>(false);
 
   //  Default values of the states category and limit are set within the last paranthesis.
 
@@ -14,11 +13,7 @@ export default function App() {
 
   const handleBtnClick = (category: string) => {
     // setGetNew(false);
-    setGetNew(true);
-    setCategory('');
     setCategory(category);
-
-    console.log(getNew);
   };
 
   // This function will pick up the value from when the "Limiter" changes value, and set a new state in "Limit".
@@ -29,7 +24,7 @@ export default function App() {
   return (
     <>
       <h1>Quote Machine</h1>
-      <Quote category={category} limit={limit} getNew={getNew} />
+      <Quote category={category} limit={limit} />
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
