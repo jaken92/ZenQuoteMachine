@@ -13,17 +13,17 @@ export default function App() {
 
   const key: string = import.meta.env.VITE_API_KEY;
   
-  function Quote(props: { category: string; limit?: number }) {
+  function Quote() {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data, refetch } = useQuery({
-    queryKey: ['quotes', props.category],
+    queryKey: ['quotes', category],
     queryFn: () =>
       fetch(
         'https://api.api-ninjas.com/v1/quotes?category=' +
-          props.category +
+          category +
           '&limit=' +
-          props.limit,
+          limit,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export default function App() {
   return (
     <>
       <h1>Quote Machine</h1>
-      <Quote category={category} limit={limit} />
+      <Quote />
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
