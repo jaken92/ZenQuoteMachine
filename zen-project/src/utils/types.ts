@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler } from 'react';
 
 export type QuoteType = {
   author: string;
@@ -6,10 +6,9 @@ export type QuoteType = {
   quote: string;
 };
 
-export type ButtonProps = {
-  fn: (category: MouseEventHandler) => void;
-  category: string;
-  limit?: number;
-};
-
 export type QuoteArray = Array<QuoteType>;
+
+export type ButtonProps = {
+  clickFunction: (category: string) => void;
+  category: string;
+};
