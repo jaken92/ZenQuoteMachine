@@ -1,5 +1,4 @@
 import './Button.css';
-
 import { ButtonProps } from '../../utils/types';
 
 export const Button: React.FC<ButtonProps> = ({ category, clickFunction }) => {
