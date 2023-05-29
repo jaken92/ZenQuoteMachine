@@ -5,6 +5,7 @@ import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
 
+//setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
 let currentCat: string = '';
 
 export default function App() {
