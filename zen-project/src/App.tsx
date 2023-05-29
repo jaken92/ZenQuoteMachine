@@ -13,7 +13,6 @@ export default function App() {
 
   const key: string = import.meta.env.VITE_API_KEY;
   
-  function Quote() {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data, refetch } = useQuery({
@@ -45,20 +44,6 @@ export default function App() {
   if (!data) return <div>No data found.</div>;
 
 
-  return (
-    <div>
-      {data.map((item: QuoteType, index: number) => (
-
-        <div key={index}>
-          <p>Quote: "{item.quote}"</p>
-          <p>Author: "{item.author}"</p>
-          <p>Category: "{item.category.charAt(0).toUpperCase() + item.category.slice(1)}"</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 
   //  Default values of the states category and limit are set within the last paranthesis.
 
@@ -78,7 +63,16 @@ export default function App() {
   return (
     <>
       <h1>Quote Machine</h1>
-      <Quote />
+      <div>
+      {data.map((item: QuoteType, index: number) => (
+
+        <div key={index}>
+          <p>Quote: "{item.quote}"</p>
+          <p>Author: "{item.author}"</p>
+          <p>Category: "{item.category.charAt(0).toUpperCase() + item.category.slice(1)}"</p>
+        </div>
+      ))}
+    </div>
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
