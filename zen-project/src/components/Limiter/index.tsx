@@ -25,7 +25,7 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
           {limits.map((currentLimit, index) => (
             <option
               value={currentLimit}
-              // Converts the tcurrentLimit"-number to a string.
+              // Converts the currentLimit"-number to a string.
               label={currentLimit.toString()}
               key={index}
             ></option>
