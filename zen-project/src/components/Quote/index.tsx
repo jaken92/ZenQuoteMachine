@@ -11,7 +11,7 @@ export function Quote(props: {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data } = useQuery({
-    queryKey: ['quotes', props.category, props.limit, props.getNew],
+    queryKey: ['quotes', props.category],
     queryFn: () =>
       fetch(
         'https://api.api-ninjas.com/v1/quotes?category=' +
