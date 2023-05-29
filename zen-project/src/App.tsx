@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
-import { Button, Limiter} from './components';
+import { Button, Limiter } from './components';
 import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
 
-export default function App() {
+let currentCat: string = '';
 
+export default function App() {
   const [category, setCategory] = React.useState<string>('');
   const [limit, setLimit] = React.useState<number>(1);
 
-
   const key: string = import.meta.env.VITE_API_KEY;
-  
+
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data, refetch } = useQuery({
@@ -32,10 +32,8 @@ export default function App() {
       )
         .then((res) => res.json())
         .then((data) => data as QuoteType[]),
-        refetchOnWindowFocus: false,
-    });
-
-  
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <div>Loading ...</div>;
 
@@ -43,14 +41,17 @@ export default function App() {
 
   if (!data) return <div>No data found.</div>;
 
-
-
   //  Default values of the states category and limit are set within the last paranthesis.
 
   const quoteCategories: string[] = categories;
 
   const handleBtnClick = (category: string) => {
-    setCategory(category);
+    if (currentCat === category) {
+      refetch();
+    } else {
+      setCategory(category);
+    }
+    currentCat = category;
   };
 
   // This function will pick up the value from when the "Limiter" changes value, and set a new state in "Limit".
@@ -58,21 +59,21 @@ export default function App() {
     setLimit(val);
   }
 
-
-
   return (
     <>
       <h1>Quote Machine</h1>
       <div>
-      {data.map((item: QuoteType, index: number) => (
-
-        <div key={index}>
-          <p>Quote: "{item.quote}"</p>
-          <p>Author: "{item.author}"</p>
-          <p>Category: "{item.category.charAt(0).toUpperCase() + item.category.slice(1)}"</p>
-        </div>
-      ))}
-    </div>
+        {data.map((item: QuoteType, index: number) => (
+          <div key={index}>
+            <p>Quote: "{item.quote}"</p>
+            <p>Author: "{item.author}"</p>
+            <p>
+              Category: "
+              {item.category.charAt(0).toUpperCase() + item.category.slice(1)}"
+            </p>
+          </div>
+        ))}
+      </div>
       <section className="categories">
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
