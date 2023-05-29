@@ -43,7 +43,8 @@ export default function App() {
 
   //  Default values of the states category and limit are set within the last paranthesis.
 
-  const quoteCategories: string[] = categories;
+  type Categories = (typeof categories)[number];
+  const quoteCategories: readonly Categories[] = categories;
 
   const handleBtnClick = (category: string) => {
     if (currentCat === category) {
