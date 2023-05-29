@@ -3,11 +3,7 @@ import { QuoteType, QuoteArray } from '../../utils/types';
 
 const key: string = import.meta.env.VITE_API_KEY;
 
-export function Quote(props: {
-  category: string;
-  limit?: number;
-  getNew: boolean;
-}) {
+export function Quote(props: { category: string; limit?: number }) {
   //  Function to test passing of props as states. Returns mapped PropsArray.
 
   const { isLoading, error, data } = useQuery({

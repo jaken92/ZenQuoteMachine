@@ -21,9 +21,9 @@ export default function App() {
     console.log(getNew);
   };
 
+  // This function will pick up the value from when the "Limiter" changes value, and set a new state in "Limit".
   function handleLimitCallback(val: number) {
     setLimit(val);
-    console.log(limit);
   }
 
   return (
