@@ -18,7 +18,7 @@ body {
     font-family: 'Arvo';
     font-size: 4rem;
     text-align: center;
-    color: #b78eff;
+    color:rgb(125, 125, 255);
     margin: 0;
   }
   h4 {
