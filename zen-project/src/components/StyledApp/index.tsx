@@ -81,7 +81,6 @@ export const StyledApp = styled.div`
     border: none;
     background-color: rgb(125, 125, 255);
     color: white;
-    /* display: ${(props) => (props.hidden ? 'none' : 'inline')}; */
     transform: translateX(${(props) => (props.hidden ? '-100%' : '0%')});
 
     &:hover {

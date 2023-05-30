@@ -6,7 +6,7 @@ const StyledLimiter = styled.div`
   display: flex;
   flex-direction: column;
   .radio-buttons {
-    width: 25%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
   }

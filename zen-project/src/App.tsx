@@ -97,6 +97,7 @@ export default function App() {
           <Limiter limitCallback={handleLimitCallback} />
         </section>
         <button
+          className="show-hide-categories"
           onClick={() => {
             categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
           }}
