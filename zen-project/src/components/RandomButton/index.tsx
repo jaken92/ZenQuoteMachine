@@ -21,6 +21,9 @@ const StyledRandomBtn = styled.button`
   animation: gradient 5s ease infinite;
   cursor: pointer;
   margin: 0 auto;
+  width: 30%;
+  height: 5vh;
+  border-radius: 20px;
 
   @keyframes gradient {
     0% {
@@ -33,8 +36,7 @@ const StyledRandomBtn = styled.button`
       background-position: 0% 50%;
     }
   }
-
   .StyledRandomBtn:hover {
-    background: black;
+    background: hotpink;
   }
 `;
