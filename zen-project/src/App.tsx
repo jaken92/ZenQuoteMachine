@@ -5,6 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
 import styled from 'styled-components';
 import { RandomButton } from './components/RandomButton';
+import Globalstyle from './fonts/fonts.ts';
+
 
 const StyledApp = styled.div`
   h1 {
@@ -82,6 +84,7 @@ export default function App() {
 
   return (
     <StyledApp>
+      <Globalstyle />
       <h1>Quote Machine</h1>
       <div>
         <RandomButton
