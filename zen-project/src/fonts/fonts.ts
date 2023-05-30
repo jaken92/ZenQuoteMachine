@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 import EpilogueItalicWoff from './Epilogue-Italic-VariableFont_wght.woff';
 import EpilogueItalicWoff2 from './Epilogue-Italic-VariableFont_wght.woff2';
@@ -11,7 +11,6 @@ import CherryBombWoff2 from './CherryBombOne-Regular.woff2';
 
 import ArvoWoff from './Arvo-Bold,Arvo-BoldItalic,Arvo-Italic/Arvo-Bold.woff';
 import ArvoWoff2 from './Arvo-Bold,Arvo-BoldItalic,Arvo-Italic/Arvo-Bold.woff2';
-
 
 const Globalstyle = createGlobalStyle`
     @font-face {
@@ -32,9 +31,9 @@ const Globalstyle = createGlobalStyle`
     }
     @font-face {
         font-family: 'Arvo';
-        src: 
-        url(${CherryBombWoff2}) format('woff2'),
-        url(${CherryBombWoff}) format('woff');
+        src:
+        url(${ArvoWoff2}) format('woff2'),
+        url(${ArvoWoff}) format('woff');
         font-weight: 400;
         font-style: normal;
     }

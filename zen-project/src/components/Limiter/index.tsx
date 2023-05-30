@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledLimiter = styled.div`
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
   .radio-buttons {
+    width: 25%;
     display: flex;
     justify-content: space-between;
   }

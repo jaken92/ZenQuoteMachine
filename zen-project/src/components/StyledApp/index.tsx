@@ -9,18 +9,17 @@ export const StyledApp = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
-
-* {
+  * {
     box-sizing: border-box;
-}
-body {
+  }
+  body {
     margin: 0;
-}
+  }
   h1 {
     font-family: 'Arvo';
-    font-size: 4rem;
-    -webkit-text-stroke: 1px rgb(255, 255, 255); /* width and color */
-    color:rgb(125, 125, 255);
+    font-size: 6rem;
+    text-shadow: 5px 5px lightgray;
+    color: rgb(125, 125, 255);
     margin: 0;
   }
   h4 {
@@ -44,7 +43,31 @@ body {
     /* display: flex;
     flex-direction: column; */
   }
-  
+
+  .show-categories {
+    font-family: 'Epilogue';
+    font-weight: 400;
+    box-shadow: 5px 5px lightgray;
+    transition: box-shadow 0.15s ease;
+    margin: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    height: 30px;
+    border: none;
+    background-color: rgb(125, 125, 255);
+    color: white;
+    display: ${(props) => (props.hidden ? 'none' : 'inline')};
+
+    &:hover {
+      box-shadow: 2px 3px lightgray;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
   @media (max-width: 767px) {
     .categories {
       grid-template-rows: repeat(3, 1fr);

@@ -16,6 +16,7 @@ export const RandomButton: React.FC<RandomButtonProps> = ({
 };
 
 const StyledDiv = styled.div`
+  padding: 2rem 0;
   display: flex;
   justify-content: center;
 `;
@@ -28,15 +29,15 @@ const StyledRandomBtn = styled.button`
   margin: 0 auto;
   width: 12rem;
   height: 5vh;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px gray;
+  border-radius: 1.25rem;
+  box-shadow: 5px 5px lightgray;
   transition: box-shadow 0.15s ease;
   font-family: 'Epilogue';
   font-weight: 400;
   font-size: 1.3rem;
 
   &:hover {
-    box-shadow: 2px 2px 3px gray;
+    box-shadow: 2px 3px lightgray;
   }
 
   &:active {
