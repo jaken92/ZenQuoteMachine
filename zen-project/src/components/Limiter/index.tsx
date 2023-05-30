@@ -32,6 +32,18 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
           ))}
         </select>
       </label>
+      <p>
+        <label>
+          Show me this many quotes:
+          <input type="radio" name="myRadio" value="1" />1
+        </label>
+        <label>
+          <input type="radio" name="myRadio" value="3" />3
+        </label>
+        <label>
+          <input type="radio" name="myRadio" value="5" />5
+        </label>
+      </p>
     </div>
   );
 };
