@@ -1,14 +1,11 @@
 import './Button.css';
 import { ButtonProps } from '../../utils/types';
 import styled from 'styled-components';
-import styled from 'styled-components';
 import Globalstyle from '../../fonts/fonts';
 
 const StyledButton = styled.button`
-
-font-family: 'Epilogue';
-font-weight: 400;
-
+  font-family: 'Epilogue';
+  font-weight: 400;
 `;
 
 export const Button: React.FC<ButtonProps> = ({ category, clickFunction }) => {
