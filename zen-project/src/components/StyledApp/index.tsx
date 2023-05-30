@@ -22,6 +22,7 @@ body {
     margin: 0;
   }
   h4 {
+    color: white;
     font-family: 'Epilogue';
     font-weight: 600;
     display: inline;
@@ -30,6 +31,7 @@ body {
   span,
   label,
   p {
+    color: white;
     margin-right: 1rem;
     font-family: 'Epilogue';
   }
