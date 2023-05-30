@@ -17,7 +17,9 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    //noImplicitAny added to raise an error when ts can not conclude the type. -Stronger typechecking.
+    "noImplicitAny": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
