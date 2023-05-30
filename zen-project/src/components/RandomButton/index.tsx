@@ -23,6 +23,7 @@ const StyledDiv = styled.div`
 
 const StyledRandomBtn = styled.button`
   background: linear-gradient(-45deg, #c86344, #e73c7e, #23a6d5, #04cc29);
+  color: white;
   background-size: 300% 300%;
   animation: gradient 5s ease infinite;
   cursor: pointer;
