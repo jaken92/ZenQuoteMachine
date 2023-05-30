@@ -9,6 +9,8 @@ import EpilogueVariableWoff2 from './Epilogue-VariableFont_wght.woff2';
 import CherryBombWoff from './CherryBombOne-Regular.woff';
 import CherryBombWoff2 from './CherryBombOne-Regular.woff2';
 
+import ArvoWoff from './Arvo-Bold,Arvo-BoldItalic,Arvo-Italic/Arvo-Bold.woff';
+import ArvoWoff2 from './Arvo-Bold,Arvo-BoldItalic,Arvo-Italic/Arvo-Bold.woff2';
 
 
 const Globalstyle = createGlobalStyle`
@@ -29,7 +31,7 @@ const Globalstyle = createGlobalStyle`
         font-style: normal;
     }
     @font-face {
-        font-family: 'Cherrybomb';
+        font-family: 'Arvo';
         src: 
         url(${CherryBombWoff2}) format('woff2'),
         url(${CherryBombWoff}) format('woff');

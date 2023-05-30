@@ -3,26 +3,8 @@ import { Button, Limiter } from './components';
 import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
-import styled from 'styled-components';
 import { RandomButton } from './components/RandomButton';
 import Globalstyle from './fonts/fonts.ts';
-
-
-const StyledApp = styled.div`
-  h1 {
-    text-align: center;
-  }
-  .categories {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-  }
-  @media (max-width: 767px) {
-    .categories {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-`;
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
 let currentCat: string = '';
@@ -83,7 +65,7 @@ export default function App() {
   }
 
   return (
-    <StyledApp>
+    <>
       <Globalstyle />
       <h1>Quote Machine</h1>
       <div>
@@ -96,14 +78,18 @@ export default function App() {
           ? message
           : data.map((item: QuoteType, index: number) => (
               <div key={index}>
-                <p>Quote: "{item.quote}"</p>
-                <p>Author: "{item.author}"</p>
-                <p>
-                  Category: "
+                <p  className='quote'>"{item.quote}"</p>
+                <div>
+                <h4>Author: </h4>
+                <span>{item.author}</span>
+                </div>
+                <div>
+                <h4>Category: </h4>
+                <span>
                   {item.category.charAt(0).toUpperCase() +
                     item.category.slice(1)}
-                  "
-                </p>
+                </span>
+                </div>
               </div>
             ))}
       </div>
@@ -117,6 +103,6 @@ export default function App() {
         ))}
       </section>
       <Limiter limitCallback={handleLimitCallback} />
-    </StyledApp>
+    </>
   );
 }
