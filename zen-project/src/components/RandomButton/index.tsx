@@ -30,6 +30,10 @@ const StyledRandomBtn = styled.button`
   &:hover {
     box-shadow: 2px 2px 3px gray;
   }
+
+  &:active {
+    box-shadow: none;
+  }
   @keyframes gradient {
     0% {
       background-position: 0% 50%;

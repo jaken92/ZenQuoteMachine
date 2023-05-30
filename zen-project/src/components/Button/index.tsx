@@ -15,8 +15,15 @@ export const Button: React.FC<ButtonProps> = ({ category, clickFunction }) => {
 const CategoryButton = styled.button`
   box-shadow: 5px 5px 5px gray;
   transition: box-shadow 0.15s ease;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 5px;
 
   &:hover {
     box-shadow: 2px 2px 3px gray;
+  }
+
+  &:active {
+    box-shadow: none;
   }
 `;

@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import { RandomButton } from './components/RandomButton';
 import Globalstyle from './fonts/fonts.ts';
 
-
 const StyledApp = styled.div`
   h1 {
     text-align: center;
