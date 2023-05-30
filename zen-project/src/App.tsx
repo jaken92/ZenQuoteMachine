@@ -1,10 +1,8 @@
 import React from 'react';
-import { Button, Limiter } from './components';
+import { Button, Limiter, Quote, RandomButton, StyledCategories} from './components';
 import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
-import { RandomButton } from './components/RandomButton';
-import StyledCategories from './components/StyledCategories/index.tsx';
 import Globalstyle from './fonts/fonts.ts';
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
@@ -101,7 +99,7 @@ export default function App() {
       </section>
       <button onClick={() => {
         categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
-      }}>Toggle Categories</button>
+      }}>{categoryHidden ? 'Show' : 'Hide'} Categories</button>
       <StyledCategories>
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button

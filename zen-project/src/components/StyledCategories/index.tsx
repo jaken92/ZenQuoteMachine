@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import { CategoryButtonProps } from "../../utils/types";
-import { Children } from "react";
 
-
-const StyledCategories = styled.section`
+export const StyledCategories = styled.section`
 
     position: relative;
     margin-bottom: 1rem;
@@ -11,15 +8,3 @@ const StyledCategories = styled.section`
     display: grid;
 
 `;
-
-// const CategorySection: React.FC<CategoryButtonProps> = ({
-//     visible,
-// }) => {
-//     return (
-//         <StyledCategories
-//         isVisible = {visible}>
-//         </StyledCategories>
-//     );
-// }
-
-export default StyledCategories;

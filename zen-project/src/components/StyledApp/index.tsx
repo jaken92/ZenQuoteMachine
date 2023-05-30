@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledApp = styled.div`
+export const StyledApp = styled.div`
   margin: 0 !important;
   padding: 0 !important;
   display: flex;
@@ -51,5 +51,3 @@ body {
     }
   }
 `;
-
-export default StyledApp;

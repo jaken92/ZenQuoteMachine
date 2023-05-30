@@ -11,6 +11,7 @@ export const Button: React.FC<ButtonProps> = ({ hidden, category, clickFunction 
   );
 };
 
+
 const CategoryButton = styled.button`
   font-family: 'Epilogue';
   font-weight: 400;
@@ -24,8 +25,10 @@ const CategoryButton = styled.button`
   border: none;
   background-color: rgb(125, 125, 255);
   color: white;
-  display: ${(props) =>
-      props.hidden ? 'none' : 'inline'};
+  /* display: ${(props) =>
+      props.hidden ? 'none' : 'inline'}; */
+  transform: translateX(${(props) =>
+      props.hidden ? '-100%' : '0%'});
 
   &:hover {
     box-shadow: 2px 2px 3px gray;

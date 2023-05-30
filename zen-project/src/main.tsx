@@ -5,7 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import StyledApp from './components/StyledApp/index.tsx';
+import { StyledApp } from './components';
 
 const queryClient = new QueryClient();
 
