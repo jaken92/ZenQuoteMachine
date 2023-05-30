@@ -1,25 +1,22 @@
 import './Button.css';
 import { ButtonProps } from '../../utils/types';
+import styled from 'styled-components';
 
 export const Button: React.FC<ButtonProps> = ({ category, clickFunction }) => {
   const upperCaseCategory =
     category.charAt(0).toUpperCase() + category.slice(1);
   return (
-    <button value={category} onClick={() => clickFunction(category)}>
+    <CategoryButton value={category} onClick={() => clickFunction(category)}>
       {upperCaseCategory}
-    </button>
+    </CategoryButton>
   );
 };
 
-// const Button = (props: { category: string; limit?: number }) => {
-//   const { category, limit } = props;
-//   const upperCaseCategory =
-//     category.charAt(0).toUpperCase() + category.slice(1);
-//   return (
-//     <button
-//       onClick={() => console.log('Category: ', category, 'Limit: ', limit)}
-//     >
-//       {upperCaseCategory}
-//     </button>
-//   );
-// };
+const CategoryButton = styled.button`
+  box-shadow: 5px 5px 5px gray;
+  transition: box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: 2px 2px 3px gray;
+  }
+`;
