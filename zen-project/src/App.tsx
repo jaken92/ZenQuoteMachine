@@ -5,23 +5,6 @@ import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
 import { RandomButton } from './components/RandomButton';
 import Globalstyle from './fonts/fonts.ts';
-import styled from 'styled-components';
-
-const StyledApp = styled.div`
-  h1 {
-    text-align: center;
-  }
-  .categories {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-  }
-  @media (max-width: 767px) {
-    .categories {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-`;
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
 let currentCat: string = '';
@@ -92,7 +75,7 @@ export default function App() {
           btnText={'Random Quote'}
         />
         {isLoading || error || !data
-          ? <p className=''>{message}</p>
+          ? <p>{message}</p>
           : data.map((item: QuoteType, index: number) => (
               <div key={index}>
                 <p className="quote">"{item.quote}"</p>

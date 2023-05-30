@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
   h1 {
     font-family: 'Arvo';
     font-size: 4rem;
     text-align: center;
+    color: #b78eff;
+    margin: 0;
   }
   h4 {
     font-family: 'Epilogue';
@@ -13,7 +22,8 @@ const StyledApp = styled.div`
     margin-right: 0.2rem;
   }
   span,
-  label {
+  label,
+  p {
     margin-right: 1rem;
     font-family: 'Epilogue';
   }
