@@ -7,13 +7,18 @@ export const RandomButton: React.FC<RandomButtonProps> = ({
   btnText,
 }) => {
   return (
-    <div>
+    <StyledDiv>
       <StyledRandomBtn value={category} onClick={() => clickFunction(category)}>
         {btnText}
       </StyledRandomBtn>
-    </div>
+    </StyledDiv>
   );
 };
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const StyledRandomBtn = styled.button`
   background: linear-gradient(-45deg, #c86344, #e73c7e, #23a6d5, #04cc29);
@@ -21,11 +26,14 @@ const StyledRandomBtn = styled.button`
   animation: gradient 5s ease infinite;
   cursor: pointer;
   margin: 0 auto;
-  width: 30%;
+  width: 12rem;
   height: 5vh;
   border-radius: 20px;
   box-shadow: 5px 5px 5px gray;
   transition: box-shadow 0.15s ease;
+  font-family: 'Epilogue';
+  font-weight: 400;
+  font-size: 1.3rem;
 
   &:hover {
     box-shadow: 2px 2px 3px gray;
