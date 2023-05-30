@@ -4,6 +4,7 @@ import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
 import { RandomButton } from './components/RandomButton';
+import StyledCategories from './components/StyledCategories/index.tsx';
 import Globalstyle from './fonts/fonts.ts';
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
@@ -12,6 +13,7 @@ let currentCat: string = '';
 export default function App() {
   const [category, setCategory] = React.useState<string>('');
   const [limit, setLimit] = React.useState<number>(1);
+  const [categoryHidden, setCategoryHidden] = React.useState<boolean>(true);
 
   const key: string = import.meta.env.VITE_API_KEY;
 
@@ -68,12 +70,14 @@ export default function App() {
     <>
       <Globalstyle />
       <h1>Quote Machine</h1>
-      <div>
         <RandomButton
           clickFunction={handleBtnClick}
           category={''}
           btnText={'Random Quote'}
         />
+      <div className='flex-wrapper'>
+      <section className='quote-section'>
+      <div>
         {isLoading || error || !data
           ? <p>{message}</p>
           : data.map((item: QuoteType, index: number) => (
@@ -93,16 +97,22 @@ export default function App() {
               </div>
             ))}
       </div>
-      <section className="categories">
+      <Limiter limitCallback={handleLimitCallback} />
+      </section>
+      <button onClick={() => {
+        categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
+      }}>Toggle Categories</button>
+      <StyledCategories>
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
             clickFunction={handleBtnClick}
             key={index}
             category={quoteCategory}
+            hidden={categoryHidden}
           />
         ))}
-      </section>
-      <Limiter limitCallback={handleLimitCallback} />
+        </StyledCategories>
+      </div>
     </>
   );
 }

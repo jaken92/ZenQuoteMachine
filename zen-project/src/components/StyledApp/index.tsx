@@ -4,8 +4,10 @@ const StyledApp = styled.div`
   margin: 0 !important;
   padding: 0 !important;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
 
 * {
@@ -17,7 +19,7 @@ body {
   h1 {
     font-family: 'Arvo';
     font-size: 4rem;
-    text-align: center;
+    -webkit-text-stroke: 1px rgb(255, 255, 255); /* width and color */
     color:rgb(125, 125, 255);
     margin: 0;
   }
@@ -38,14 +40,14 @@ body {
   .quote {
     font-family: 'EpilogueItalic';
   }
-  .categories {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
+  .quote-section {
+    /* display: flex;
+    flex-direction: column; */
   }
+  
   @media (max-width: 767px) {
     .categories {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
     }
   }
 `;
