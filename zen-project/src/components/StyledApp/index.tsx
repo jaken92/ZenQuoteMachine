@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
-  background-color: #2a2626;
   margin: 0 !important;
   padding: 0 !important;
   display: flex;
