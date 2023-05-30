@@ -1,5 +1,11 @@
 import React from 'react';
-import { Button, Limiter, Quote, RandomButton, StyledCategories} from './components';
+import {
+  Button,
+  Limiter,
+  Quote,
+  RandomButton,
+  StyledCategories,
+} from './components';
 import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
@@ -68,47 +74,53 @@ export default function App() {
     <>
       <Globalstyle />
       <h1>Quote Machine</h1>
-        <RandomButton
-          clickFunction={handleBtnClick}
-          category={''}
-          btnText={'Random Quote'}
-        />
-      <div className='flex-wrapper'>
-      <section className='quote-section'>
-      <div>
-        {isLoading || error || !data
-          ? <p>{message}</p>
-          : data.map((item: QuoteType, index: number) => (
-              <div key={index}>
-                <p className="quote">"{item.quote}"</p>
-                <div>
-                  <h4>Author: </h4>
-                  <span>{item.author}</span>
+      <RandomButton
+        clickFunction={handleBtnClick}
+        category={''}
+        btnText={'Random Quote'}
+      />
+      <div className="flex-wrapper">
+        <section className="quote-section">
+          <div>
+            {isLoading || error || !data ? (
+              <p>{message}</p>
+            ) : (
+              data.map((item: QuoteType, index: number) => (
+                <div key={index}>
+                  <p className="quote">"{item.quote}"</p>
+                  <div>
+                    <h4>Author: </h4>
+                    <span>{item.author}</span>
+                  </div>
+                  <div>
+                    <h4>Category: </h4>
+                    <span>
+                      {item.category.charAt(0).toUpperCase() +
+                        item.category.slice(1)}
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h4>Category: </h4>
-                  <span>
-                    {item.category.charAt(0).toUpperCase() +
-                      item.category.slice(1)}
-                  </span>
-                </div>
-              </div>
-            ))}
-      </div>
-      <Limiter limitCallback={handleLimitCallback} />
-      </section>
-      <button onClick={() => {
-        categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
-      }}>{categoryHidden ? 'Show' : 'Hide'} Categories</button>
-      <StyledCategories>
-        {quoteCategories.map((quoteCategory: string, index: number) => (
-          <Button
-            clickFunction={handleBtnClick}
-            key={index}
-            category={quoteCategory}
-            hidden={categoryHidden}
-          />
-        ))}
+              ))
+            )}
+          </div>
+          <Limiter limitCallback={handleLimitCallback} />
+        </section>
+        <button
+          onClick={() => {
+            categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
+          }}
+        >
+          {categoryHidden ? 'Show' : 'Hide'} Categories
+        </button>
+        <StyledCategories>
+          {quoteCategories.map((quoteCategory: string, index: number) => (
+            <Button
+              clickFunction={handleBtnClick}
+              key={index}
+              category={quoteCategory}
+              hidden={categoryHidden}
+            />
+          ))}
         </StyledCategories>
       </div>
     </>
