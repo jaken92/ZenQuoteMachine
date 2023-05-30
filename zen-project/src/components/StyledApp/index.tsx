@@ -8,10 +8,19 @@ const StyledApp = styled.div`
   flex-direction: column;
   align-items: center;
 
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
   h1 {
     font-family: 'Arvo';
     font-size: 4rem;
     text-align: center;
+    color: #b78eff;
+    margin: 0;
   }
   h4 {
     font-family: 'Epilogue';
@@ -19,7 +28,9 @@ const StyledApp = styled.div`
     display: inline;
     margin-right: 0.2rem;
   }
-  span {
+  span,
+  label,
+  p {
     margin-right: 1rem;
     font-family: 'Epilogue';
   }
