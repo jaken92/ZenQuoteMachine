@@ -20,7 +20,7 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
   return (
     <div>
       <label>
-        Limit:
+        Show me this many quotes:
         <select value={limitValue} onChange={handleChange}>
           {limits.map((currentLimit, index) => (
             <option
