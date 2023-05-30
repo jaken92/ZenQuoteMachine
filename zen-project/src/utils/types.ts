@@ -7,6 +7,7 @@ export type QuoteType = {
 export type ButtonProps = {
   clickFunction: (category: string) => void;
   category: string;
+  hidden: boolean;
 };
 
 export type RandomButtonProps = {
@@ -14,3 +15,7 @@ export type RandomButtonProps = {
   category: string;
   btnText: string;
 };
+
+// export type CategoryButtonProps = {
+//   visible: boolean
+// }
