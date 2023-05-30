@@ -92,7 +92,7 @@ export default function App() {
           btnText={'Random Quote'}
         />
         {isLoading || error || !data
-          ? message
+          ? <p className=''>{message}</p>
           : data.map((item: QuoteType, index: number) => (
               <div key={index}>
                 <p className="quote">"{item.quote}"</p>
