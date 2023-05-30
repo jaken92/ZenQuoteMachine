@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledApp = styled.div`
   h1 {
@@ -12,7 +12,8 @@ const StyledApp = styled.div`
     display: inline;
     margin-right: 0.2rem;
   }
-  span {
+  span,
+  label {
     margin-right: 1rem;
     font-family: 'Epilogue';
   }
