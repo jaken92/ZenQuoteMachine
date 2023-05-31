@@ -1,3 +1,4 @@
+// All categories use by the api.
 const categories = [
   'age',
   'alone',

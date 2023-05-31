@@ -23,12 +23,13 @@ export const StyledApp = styled.div`
     margin: 0 auto;
     text-align: center;
   }
+
   h1 {
     font-family: 'Arvo';
     font-size: 6rem;
     text-shadow: 5px 5px lightgray;
     color: rgb(125, 125, 255);
-    margin: 0 auto;
+    margin: 0;
     padding: 0px;
   }
 
@@ -74,6 +75,41 @@ export const StyledApp = styled.div`
 
     &:active {
       box-shadow: none;
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (max-width: 427px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    h4,
+    p {
+      font-size: 0.75rem;
     }
   }
 `;

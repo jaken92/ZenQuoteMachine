@@ -6,9 +6,9 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { StyledApp } from './components';
-
 const queryClient = new QueryClient();
 
+// Wraps App with queryClient and the styling within StyledApp
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
