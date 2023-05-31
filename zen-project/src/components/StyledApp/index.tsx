@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 export const StyledApp = styled.div`
-  margin: 0 !important;
+  /* margin: 0 !important; */
   padding: 0 !important;
   display: flex;
   align-items: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
 
   * {
     box-sizing: border-box;
@@ -18,7 +22,6 @@ export const StyledApp = styled.div`
 
   .quote-section {
     margin: 0 auto;
-    width: 80%;
     text-align: center;
   }
   h1 {
@@ -84,7 +87,8 @@ export const StyledApp = styled.div`
     font-weight: 400;
     box-shadow: 5px 5px lightgray;
     transition: box-shadow 0.15s ease;
-    margin: 5px 10px;
+    /* margin: 5px 10px; */
+    margin-bottom: 1rem;
     cursor: pointer;
     border-radius: 5px;
 
@@ -103,9 +107,9 @@ export const StyledApp = styled.div`
     }
   }
 
-  @media (max-width: 767px) {
+  /* @media (max-width: 767px) {
     .categories {
       grid-template-rows: repeat(3, 1fr);
     }
-  }
+  } */
 `;
