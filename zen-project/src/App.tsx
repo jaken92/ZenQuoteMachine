@@ -85,46 +85,40 @@ export default function App() {
         category={''}
         btnText={'Random Quote'}
       />
-      <div className="flex-wrapper">
-        <section className="quote-section">
-          {isLoading || error || !data ? (
-            <p>{message}</p>
-          ) : (
-            data.map((item: QuoteType, index: number) => (
-              <div key={index}>
-                <Quote
-                  author={item.author}
-                  category={item.category}
-                  quote={item.quote}
-                />
-              </div>
-            ))
-          )}
-          <Limiter limitCallback={handleLimitCallback} />
-        </section>
-        <button
-          className="show-hide-categories"
-          onClick={() => {
-            categoryHidden ? setCategoryHidden(false): setCategoryHidden(true);
-          }}
-        >
-          {categoryHidden ? 'Show' : 'Hide'} Categories
-        </button>
-        <StyledCategories 
-        as={motion.section}
-        animate={categoryHidden ? "open" : "closed"}
-        variants={variants}
-        >
-        
-          {quoteCategories.map((quoteCategory: string, index: number) => (
-            <Button
-              clickFunction={handleBtnClick}
-              key={index}
-              category={quoteCategory}
-            />
-          ))}
-        </StyledCategories>
-      </div>
+      <section className="quote-section">
+        {isLoading || error || !data ? (
+          <p>{message}</p>
+        ) : (
+          data.map((item: QuoteType, index: number) => (
+            <div key={index}>
+              <Quote
+                author={item.author}
+                category={item.category}
+                quote={item.quote}
+              />
+            </div>
+          ))
+        )}
+        <Limiter limitCallback={handleLimitCallback} />
+      </section>
+      <button
+        className="show-hide-categories"
+        onClick={() => {
+          categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
+        }}
+      >
+        {categoryHidden ? 'Show' : 'Hide'} Categories
+      </button>
+      <StyledCategories>
+        {quoteCategories.map((quoteCategory: string, index: number) => (
+          <Button
+            clickFunction={handleBtnClick}
+            key={index}
+            category={quoteCategory}
+            hidden={categoryHidden}
+          />
+        ))}
+      </StyledCategories>
     </>
   );
 }

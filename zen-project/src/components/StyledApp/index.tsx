@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledApp = styled.div`
-  margin: 0 !important;
+  /* margin: 0 !important; */
   padding: 0 !important;
   display: flex;
   align-items: center;
@@ -9,11 +9,20 @@ export const StyledApp = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+
   * {
     box-sizing: border-box;
   }
   body {
     margin: 0;
+  }
+
+  .quote-section {
+    margin: 0 auto;
+    text-align: center;
   }
   h1 {
     font-family: 'Arvo';
@@ -21,6 +30,15 @@ export const StyledApp = styled.div`
     text-shadow: 5px 5px lightgray;
     color: rgb(125, 125, 255);
     margin: 0;
+  }
+
+  h3 {
+    color: white;
+    font-family: 'Epilogue';
+    font-weight: 600;
+    display: inline;
+    margin-right: 0.2rem;
+    font-size: 2rem;
   }
   h4 {
     color: white;
@@ -39,17 +57,14 @@ export const StyledApp = styled.div`
   .quote {
     font-family: 'EpilogueItalic';
   }
-  .quote-section {
-    /* display: flex;
-    flex-direction: column; */
-  }
 
   .show-hide-categories {
     font-family: 'Epilogue';
     font-weight: 400;
     box-shadow: 5px 5px lightgray;
     transition: box-shadow 0.15s ease;
-    margin: 5px 10px;
+    /* margin: 5px 10px; */
+    margin-bottom: 1rem;
     cursor: pointer;
     border-radius: 5px;
 
@@ -67,9 +82,9 @@ export const StyledApp = styled.div`
     }
   }
 
-  @media (max-width: 767px) {
+  /* @media (max-width: 767px) {
     .categories {
       grid-template-rows: repeat(3, 1fr);
     }
-  }
+  } */
 `;
