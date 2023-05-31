@@ -44,30 +44,6 @@ export const StyledApp = styled.div`
     flex-direction: column; */
   }
 
-  .show-categories {
-    font-family: 'Epilogue';
-    font-weight: 400;
-    box-shadow: 5px 5px lightgray;
-    transition: box-shadow 0.15s ease;
-    margin: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-
-    height: 30px;
-    border: none;
-    background-color: rgb(125, 125, 255);
-    color: white;
-    display: ${(props) => (props.hidden ? 'none' : 'inline')};
-
-    &:hover {
-      box-shadow: 2px 3px lightgray;
-    }
-
-    &:active {
-      box-shadow: none;
-    }
-  }
-
   .show-hide-categories {
     font-family: 'Epilogue';
     font-weight: 400;
@@ -81,7 +57,6 @@ export const StyledApp = styled.div`
     border: none;
     background-color: rgb(125, 125, 255);
     color: white;
-    transform: translateX(${(props) => (props.hidden ? '-100%' : '0%')});
 
     &:hover {
       box-shadow: 2px 3px lightgray;

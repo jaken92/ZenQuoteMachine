@@ -10,6 +10,7 @@ import { QuoteType } from './utils/types';
 import { useQuery } from '@tanstack/react-query';
 import categories from './utils/categories';
 import Globalstyle from './fonts/fonts.ts';
+import { motion } from 'framer-motion';
 
 //setting initial value for currentCat to use as a condition for refetch in handleBtnClick.
 let currentCat: string = '';
@@ -70,6 +71,11 @@ export default function App() {
     setLimit(val);
   }
 
+  const variants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "-100%" },
+  }
+
   return (
     <>
       <Globalstyle />
@@ -99,18 +105,22 @@ export default function App() {
         <button
           className="show-hide-categories"
           onClick={() => {
-            categoryHidden ? setCategoryHidden(false) : setCategoryHidden(true);
+            categoryHidden ? setCategoryHidden(false): setCategoryHidden(true);
           }}
         >
           {categoryHidden ? 'Show' : 'Hide'} Categories
         </button>
-        <StyledCategories>
+        <StyledCategories 
+        as={motion.section}
+        animate={categoryHidden ? "open" : "closed"}
+        variants={variants}
+        >
+        
           {quoteCategories.map((quoteCategory: string, index: number) => (
             <Button
               clickFunction={handleBtnClick}
               key={index}
               category={quoteCategory}
-              hidden={categoryHidden}
             />
           ))}
         </StyledCategories>
