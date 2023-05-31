@@ -2,24 +2,22 @@ import { ButtonProps } from '../../utils/types';
 import styled from 'styled-components';
 
 export const Button: React.FC<ButtonProps> = ({
-  hidden,
   category,
   clickFunction,
 }) => {
   const upperCaseCategory =
     category.charAt(0).toUpperCase() + category.slice(1);
   return (
-    <CategoryButton
-      hidden={hidden}
+    <StyledButton
       value={category}
       onClick={() => clickFunction(category)}
     >
       {upperCaseCategory}
-    </CategoryButton>
+    </StyledButton>
   );
 };
 
-const CategoryButton = styled.button`
+const StyledButton = styled.button`
   font-family: 'Epilogue';
   font-weight: 400;
   box-shadow: 5px 5px lightgray;
@@ -33,7 +31,6 @@ const CategoryButton = styled.button`
   border: none;
   background-color: rgb(125, 125, 255);
   color: white;
-  transform: translateX(${(props) => (props.hidden ? '-100%' : '0%')});
 
   &:hover {
     box-shadow: 2px 3px lightgray;
