@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledLimiter = styled.div`
-  margin: 1rem 0;
+  margin: 2rem 0 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +10,9 @@ const StyledLimiter = styled.div`
     width: 15rem;
     display: flex;
     justify-content: space-between;
+  }
+  h4 {
+    font-family: 'Epilogue';
   }
 `;
 
