@@ -73,7 +73,7 @@ export default function App() {
 
   const variants = {
     open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-100%" },
+    closed: { opacity: 0, x: "-100%" } 
   }
 
   return (
@@ -111,8 +111,10 @@ export default function App() {
       </button>
       <StyledCategories
         as={motion.section}
-        animate={categoryHidden ? "open" : "closed"}
-        variants={variants}>
+        animate={categoryHidden ? "closed" : "open"}
+        variants={variants}
+        initial={false}
+        >
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
             clickFunction={handleBtnClick}
