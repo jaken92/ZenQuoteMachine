@@ -6,9 +6,11 @@ export const StyledCategories = styled.section`
   grid-template-columns: repeat(6, 1fr);
   display: grid;
 
-  @media screen and(max-width: 767px) {
-    .categories {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;

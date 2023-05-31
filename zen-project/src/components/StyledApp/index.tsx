@@ -77,9 +77,9 @@ export const StyledApp = styled.div`
     }
   }
 
-  /* @media (max-width: 767px) {
+  @media (max-width: 767px) {
     .categories {
       grid-template-rows: repeat(3, 1fr);
     }
-  } */
+  }
 `;
