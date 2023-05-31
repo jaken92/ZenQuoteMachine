@@ -28,7 +28,8 @@ export const StyledApp = styled.div`
     font-size: 6rem;
     text-shadow: 5px 5px lightgray;
     color: rgb(125, 125, 255);
-    margin: 0;
+    margin: 0 auto;
+    padding: 0px;
   }
 
   h3 {
