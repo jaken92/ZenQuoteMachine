@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledApp = styled.div`
-  /* margin: 0 !important; */
   padding: 0 !important;
   display: flex;
   align-items: center;
@@ -63,7 +62,7 @@ export const StyledApp = styled.div`
     cursor: pointer;
     border-radius: 5px;
 
-    height: 30px;
+    height: 1.875rem;
     border: none;
     background-color: rgb(125, 125, 255);
     color: white;
@@ -74,12 +73,6 @@ export const StyledApp = styled.div`
 
     &:active {
       box-shadow: none;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .categories {
-      grid-template-rows: repeat(3, 1fr);
     }
   }
 `;
