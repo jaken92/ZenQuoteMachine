@@ -111,7 +111,7 @@ export default function App() {
       </button>
       <StyledCategories
         as={motion.section}
-        animate={categoryHidden ? 'open' : 'closed'}
+        animate={categoryHidden ? 'closed' : 'open'}
         variants={variants}
         initial={false}
       >
