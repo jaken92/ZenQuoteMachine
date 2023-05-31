@@ -18,7 +18,7 @@ const Globalstyle = createGlobalStyle`
         src:
         url(${EpilogueItalicWoff2}) format('woff2'),
         url(${EpilogueItalicWoff}) format('woff');
-        font-weight: 300;
+        font-weight: 100 900;
         font-style: italic;
     }
     @font-face {
@@ -26,7 +26,7 @@ const Globalstyle = createGlobalStyle`
         src:
         url(${EpilogueVariableWoff2}) format('woff2'),
         url(${EpilogueVariableWoff}) format('woff');
-        font-weight: 300;
+        font-weight: 100 900;
         font-style: normal;
     }
     @font-face {
