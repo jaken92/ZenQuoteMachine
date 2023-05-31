@@ -1,5 +1,5 @@
 # :dragon: :leaves: Quote Machine :leaves: :dragon:
-Typescript + React project, using vite.js scaffolding and the [**api-ninja.com/api/quotes**](https://api-ninjas.com/api/) API. 
+Typescript + React project, using vite.js scaffolding and the [**api-ninja.com/api/quotes**](https://api-ninjas.com/api/quotes) API. 
 
 Also utilizing: 
 - Tanstack Query
