@@ -24,7 +24,7 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
     props.limitCallback(value);
   };
 
-  // Returning 3 radio buttons with hard-coded values:
+  // Returning 3 radio buttons with hard-coded values. Buttton with value of "1" is set to default:
   return (
     <StyledLimiter>
       <h4 className="label-radio-buttons">Show me this many quotes:</h4>
