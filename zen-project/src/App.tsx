@@ -57,12 +57,25 @@ export default function App() {
   type Categories = (typeof categories)[number];
   const quoteCategories: readonly Categories[] = categories;
 
+  const scrollToTop = () => {
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth",
+
+    });
+
+  };
+
   const handleBtnClick = (category: string) => {
     if (currentCat === category) {
       refetch();
     } else {
       setCategory(category);
     }
+    scrollToTop();
     currentCat = category;
   };
 
@@ -76,6 +89,27 @@ export default function App() {
     closed: { opacity: 0, x: '-100%' },
   };
 
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const div = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
     <>
       <Globalstyle />
@@ -85,22 +119,27 @@ export default function App() {
         category={''}
         btnText={'Random Quote'}
       />
-      <section className="quote-section">
+      <motion.section 
+      className="quote-section container"
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      >
         {isLoading || error || !data ? (
-          <p>{message}</p>
+          <motion.p className='item' variants={div}>{message}</motion.p>
         ) : (
           data.map((item: QuoteType, index: number) => (
-            <div key={index}>
+            <motion.div key={index} className='item' variants={div}>
               <Quote
                 author={item.author}
                 category={item.category}
                 quote={item.quote}
               />
-            </div>
-          ))
+            </motion.div>
+          )) 
         )}
         <Limiter limitCallback={handleLimitCallback} />
-      </section>
+      </motion.section>
       <button
         className="show-hide-categories"
         onClick={() => {
