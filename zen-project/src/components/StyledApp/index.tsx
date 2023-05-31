@@ -36,24 +36,20 @@ export const StyledApp = styled.div`
     color: white;
     font-family: 'Epilogue';
     font-weight: 600;
-    display: inline;
-    margin-right: 0.2rem;
     font-size: 2rem;
   }
   h4 {
     color: white;
-    font-family: 'Epilogue';
-    font-weight: 600;
-    display: inline;
-    margin-right: 0.2rem;
+    font-family: 'EpilogueItalic';
+    font-weight: 500;
   }
-  span,
+
   label,
   p {
     color: white;
-    margin-right: 1rem;
     font-family: 'Epilogue';
   }
+
   .quote {
     font-family: 'EpilogueItalic';
   }
@@ -63,7 +59,6 @@ export const StyledApp = styled.div`
     font-weight: 400;
     box-shadow: 5px 5px lightgray;
     transition: box-shadow 0.15s ease;
-    /* margin: 5px 10px; */
     margin-bottom: 1rem;
     cursor: pointer;
     border-radius: 5px;
