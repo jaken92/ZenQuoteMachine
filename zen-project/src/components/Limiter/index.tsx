@@ -37,6 +37,7 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
             name="myRadio"
             value="1"
             onChange={handleChange}
+            defaultChecked
           />
         </label>
         <label>
