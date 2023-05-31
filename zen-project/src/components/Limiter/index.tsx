@@ -11,7 +11,7 @@ const StyledLimiter = styled.div`
     display: flex;
     justify-content: space-between;
   }
-  h4 {
+  .label-radio-buttons {
     font-family: 'Epilogue';
   }
 `;
@@ -27,9 +27,10 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
   // Returning 3 radio buttons with hard-coded values:
   return (
     <StyledLimiter>
-      <h4>Show me this many quotes:</h4>
+      <h4 className="label-radio-buttons">Show me this many quotes:</h4>
       <div className="radio-buttons">
         <label>
+          1
           <input
             className="radio-button"
             type="radio"
@@ -37,9 +38,9 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
             value="1"
             onChange={handleChange}
           />
-          1
         </label>
         <label>
+          3
           <input
             className="radio-button"
             type="radio"
@@ -47,9 +48,9 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
             value="3"
             onChange={handleChange}
           />
-          3
         </label>
         <label>
+          5
           <input
             className="radio-button"
             type="radio"
@@ -57,7 +58,6 @@ export const Limiter = (props: { limitCallback: (arg0: number) => void }) => {
             value="5"
             onChange={handleChange}
           />
-          5
         </label>
       </div>
     </StyledLimiter>
