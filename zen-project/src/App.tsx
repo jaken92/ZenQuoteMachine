@@ -58,15 +58,10 @@ export default function App() {
   const quoteCategories: readonly Categories[] = categories;
 
   const scrollToTop = () => {
-
     window.scrollTo({
-
       top: 0,
-
       behavior: "smooth",
-
     });
-
   };
 
   const handleBtnClick = (category: string) => {
