@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledApp = styled.div`
-  /* margin: 0 !important; */
   padding: 0 !important;
   display: flex;
   align-items: center;
@@ -29,7 +28,8 @@ export const StyledApp = styled.div`
     font-size: 6rem;
     text-shadow: 5px 5px lightgray;
     color: rgb(125, 125, 255);
-    margin: 0;
+    margin: 0 auto;
+    padding: 0px;
   }
 
   h3 {
@@ -63,7 +63,7 @@ export const StyledApp = styled.div`
     cursor: pointer;
     border-radius: 5px;
 
-    height: 30px;
+    height: 1.875rem;
     border: none;
     background-color: rgb(125, 125, 255);
     color: white;
@@ -76,10 +76,4 @@ export const StyledApp = styled.div`
       box-shadow: none;
     }
   }
-
-  /* @media (max-width: 767px) {
-    .categories {
-      grid-template-rows: repeat(3, 1fr);
-    }
-  } */
 `;
