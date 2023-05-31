@@ -1,4 +1,4 @@
-# :dragon: :leaves: ZenQuoteMachine :dragon: :leaves:
+# :dragon: :leaves: Quote Machine :dragon: :leaves:
 Typescript + React project, using vite.js scaffolding and the [** api-ninja.com/api/quotes **](https://api-ninjas.com/api/) API. 
 
 Also utilizing: 
