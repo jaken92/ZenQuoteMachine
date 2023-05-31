@@ -4,7 +4,7 @@ export const Quote: React.FC<QuoteType> = ({ author, category, quote }) => {
   const upperCaseCategory =
     category.charAt(0).toUpperCase() + category.slice(1);
   return (
-    <div className="quote-wrapper">
+    <div>
       <h3 className="quote">"{quote}"</h3>
       <div>
         <h4>Author: </h4>

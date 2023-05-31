@@ -16,7 +16,7 @@ export const StyledApp = styled.div`
     margin: 0;
   }
 
-  .quote-wrapper {
+  .quote-section {
     margin: 0 auto;
     width: 80%;
     text-align: center;
@@ -35,7 +35,7 @@ export const StyledApp = styled.div`
     font-weight: 600;
     display: inline;
     margin-right: 0.2rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
   h4 {
     color: white;
@@ -53,10 +53,6 @@ export const StyledApp = styled.div`
   }
   .quote {
     font-family: 'EpilogueItalic';
-  }
-  .quote-section {
-    /* display: flex;
-    flex-direction: column; */
   }
 
   .show-categories {
