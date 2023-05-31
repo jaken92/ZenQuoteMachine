@@ -113,8 +113,8 @@ export default function App() {
         as={motion.section}
         animate={categoryHidden ? 'open' : 'closed'}
         variants={variants}
-      >
         initial={false}
+      >
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
             clickFunction={handleBtnClick}
