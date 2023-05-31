@@ -23,6 +23,7 @@ export const StyledApp = styled.div`
     margin: 0 auto;
     text-align: center;
   }
+
   h1 {
     font-family: 'Arvo';
     font-size: 6rem;
