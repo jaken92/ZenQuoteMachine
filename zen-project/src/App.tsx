@@ -109,13 +109,15 @@ export default function App() {
       >
         {categoryHidden ? 'Show' : 'Hide'} Categories
       </button>
-      <StyledCategories>
+      <StyledCategories
+        as={motion.section}
+        animate={categoryHidden ? "open" : "closed"}
+        variants={variants}>
         {quoteCategories.map((quoteCategory: string, index: number) => (
           <Button
             clickFunction={handleBtnClick}
             key={index}
             category={quoteCategory}
-            hidden={categoryHidden}
           />
         ))}
       </StyledCategories>
