@@ -15,12 +15,27 @@ export const StyledApp = styled.div`
   body {
     margin: 0;
   }
+
+  .quote-wrapper {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+  }
   h1 {
     font-family: 'Arvo';
     font-size: 6rem;
     text-shadow: 5px 5px lightgray;
     color: rgb(125, 125, 255);
     margin: 0;
+  }
+
+  h3 {
+    color: white;
+    font-family: 'Epilogue';
+    font-weight: 600;
+    display: inline;
+    margin-right: 0.2rem;
+    font-size: 3rem;
   }
   h4 {
     color: white;
