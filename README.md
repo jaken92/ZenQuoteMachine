@@ -12,3 +12,5 @@ Made by:
 - [**Alfred Unenge**](https://github.com/alun0511) 
 
 Students of [**YRGO**](https://www.yrgo.se/utbildningar/webbutvecklare/ "YRGO") web developer class of '22.
+
+https://the-quote-machine.netlify.app/
