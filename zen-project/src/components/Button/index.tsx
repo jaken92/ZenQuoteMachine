@@ -1,10 +1,13 @@
 import { ButtonProps } from '../../utils/types';
 import styled from 'styled-components';
 
+// Passes clickFunction as a prop to alter useStates within App.tsx
+
 export const Button: React.FC<ButtonProps> = ({
   category,
   clickFunction,
 }) => {
+  // Makes the first letter of each category a capital letter
   const upperCaseCategory =
     category.charAt(0).toUpperCase() + category.slice(1);
   return (

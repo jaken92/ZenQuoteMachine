@@ -1,6 +1,8 @@
 import { RandomButtonProps } from '../../utils/types';
 import styled from 'styled-components';
 
+// Passes clickFunction as a prop to alter useStates within App.tsx
+
 export const RandomButton: React.FC<RandomButtonProps> = ({
   category,
   clickFunction,
