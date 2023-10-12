@@ -14,3 +14,9 @@ Made by:
 Students of [**YRGO**](https://www.yrgo.se/utbildningar/webbutvecklare/ "YRGO") web developer class of '22.
 
 https://the-quote-machine.netlify.app/
+
+### How to contribute: ###
+- Pick an issue you would like to solve by commenting on it.
+- Fork and download the repository.
+- Create a pull request once you've commited your changes locally.
+ 
